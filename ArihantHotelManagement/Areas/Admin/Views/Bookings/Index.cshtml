@@ -1,0 +1,32 @@
+@model IEnumerable<Booking>
+
+<h1>Booking Workflow Control</h1>
+<table class="glass table">
+    <thead><tr><th>ID</th><th>Guest</th><th>Room</th><th>Amount</th><th>Status</th><th>Update</th></tr></thead>
+    <tbody>
+    @foreach (var booking in Model)
+    {
+        <tr>
+            <td>@booking.BookingId</td>
+            <td>@booking.GuestName</td>
+            <td>@booking.RoomId</td>
+            <td>$@booking.TotalAmount</td>
+            <td>@booking.BookingStatus</td>
+            <td>
+                <form method="post" asp-action="UpdateStatus">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="bookingId" value="@booking.BookingId" />
+                    <select name="status">
+                        <option>Pending</option>
+                        <option>Confirmed</option>
+                        <option>CheckedIn</option>
+                        <option>CheckedOut</option>
+                        <option>Cancelled</option>
+                    </select>
+                    <button class="btn-secondary" type="submit">Apply</button>
+                </form>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

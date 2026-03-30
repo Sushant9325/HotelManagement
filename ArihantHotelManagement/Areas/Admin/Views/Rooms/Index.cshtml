@@ -1,0 +1,19 @@
+@model IReadOnlyList<Room>
+
+<h1>Room Control</h1>
+<a class="btn-primary" asp-action="Edit" asp-route-id="0">Add New Room</a>
+<table class="glass table">
+    <thead><tr><th>No.</th><th>Type</th><th>Price</th><th>Guests</th><th>Action</th></tr></thead>
+    <tbody>
+    @foreach (var room in Model)
+    {
+        <tr>
+            <td>@room.RoomNumber</td>
+            <td>@room.RoomType</td>
+            <td>$@room.PricePerNight</td>
+            <td>@room.MaxGuests</td>
+            <td><a class="btn-secondary" asp-action="Edit" asp-route-id="@room.RoomId">Edit</a></td>
+        </tr>
+    }
+    </tbody>
+</table>

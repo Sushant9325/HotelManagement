@@ -1,0 +1,16 @@
+@model IReadOnlyList<Room>
+
+<h1 class="section-title">Rooms at ARIHANT</h1>
+<div class="cards-grid">
+    @foreach (var room in Model)
+    {
+        <article class="glass card animate-on-scroll">
+            <img src="@(room.HeroImageUrl ?? "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1200")" alt="@room.RoomType" />
+            <h3>@room.RoomType - @room.RoomNumber</h3>
+            <p>@room.Description</p>
+            <p><strong>Max Guests:</strong> @room.MaxGuests</p>
+            <div class="card-meta">$@room.PricePerNight / night</div>
+            <a class="btn-primary" asp-controller="Booking" asp-action="Create" asp-route-roomId="@room.RoomId">Book Online</a>
+        </article>
+    }
+</div>
