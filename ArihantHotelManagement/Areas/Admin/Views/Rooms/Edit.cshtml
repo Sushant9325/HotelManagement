@@ -1,0 +1,30 @@
+@model Room
+
+<h1>Room Editor</h1>
+<form method="post" class="glass form-grid">
+    @Html.AntiForgeryToken()
+    <input asp-for="RoomId" type="hidden" />
+
+    <label asp-for="RoomNumber"></label>
+    <input asp-for="RoomNumber" />
+
+    <label asp-for="RoomType"></label>
+    <input asp-for="RoomType" />
+
+    <label asp-for="PricePerNight"></label>
+    <input asp-for="PricePerNight" />
+
+    <label asp-for="MaxGuests"></label>
+    <input asp-for="MaxGuests" />
+
+    <label asp-for="Description"></label>
+    <textarea asp-for="Description"></textarea>
+
+    <label asp-for="HeroImageUrl"></label>
+    <input asp-for="HeroImageUrl" />
+
+    <label asp-for="IsActive"></label>
+    <input asp-for="IsActive" type="checkbox" />
+
+    <button class="btn-primary" type="submit">Save Room</button>
+</form>

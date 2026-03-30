@@ -1,0 +1,33 @@
+@model ArihantHotelManagement.ViewModels.CreateBookingViewModel
+@{
+    var room = (Room)ViewBag.Room;
+}
+
+<h1>Booking: @room.RoomType (@room.RoomNumber)</h1>
+<form method="post" class="glass form-grid">
+    @Html.AntiForgeryToken()
+    <input asp-for="RoomId" type="hidden" />
+
+    <label asp-for="GuestName"></label>
+    <input asp-for="GuestName" />
+
+    <label asp-for="Email"></label>
+    <input asp-for="Email" />
+
+    <label asp-for="Phone"></label>
+    <input asp-for="Phone" />
+
+    <label asp-for="CheckInDate"></label>
+    <input asp-for="CheckInDate" />
+
+    <label asp-for="CheckOutDate"></label>
+    <input asp-for="CheckOutDate" />
+
+    <label asp-for="Adults"></label>
+    <input asp-for="Adults" />
+
+    <label asp-for="Children"></label>
+    <input asp-for="Children" />
+
+    <button type="submit" class="btn-primary">Proceed to Stripe Payment (Test)</button>
+</form>

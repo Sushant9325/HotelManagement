@@ -1,0 +1,20 @@
+@model IReadOnlyList<Room>
+
+<section class="hero animate-on-scroll">
+    <h1>Welcome to ARIHANT Luxury Hotel</h1>
+    <p>Book premium rooms with seamless Stripe online payment.</p>
+    <a class="btn-primary" asp-controller="Rooms" asp-action="Index">Book Your Stay</a>
+</section>
+
+<section id="features" class="cards-grid">
+    @foreach (var room in Model.Take(3))
+    {
+        <article class="glass card animate-on-scroll">
+            <img src="@(room.HeroImageUrl ?? "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200")" alt="@room.RoomType" />
+            <h3>@room.RoomType</h3>
+            <p>@room.Description</p>
+            <div class="card-meta">$@room.PricePerNight / night</div>
+            <a class="btn-secondary" asp-controller="Booking" asp-action="Create" asp-route-roomId="@room.RoomId">Reserve Now</a>
+        </article>
+    }
+</section>

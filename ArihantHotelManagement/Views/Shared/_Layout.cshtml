@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ARIHANT Hotel Management</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header class="main-header glass">
+        <div class="container nav-wrap">
+            <a class="brand" asp-controller="Home" asp-action="Index">ARIHANT</a>
+            <nav>
+                <a asp-controller="Rooms" asp-action="Index">Rooms</a>
+                <a asp-controller="Home" asp-action="Index" asp-fragment="features">Experience</a>
+                <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Admin</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container page-body">
+        @RenderBody()
+    </main>
+
+    <script src="~/js/site.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
